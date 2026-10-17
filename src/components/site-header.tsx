@@ -46,7 +46,7 @@ export function SiteHeader() {
       >
         <a href="#classroom">The classroom</a>
         <a href="#your-way">Your way to teach</a>
-        <a href="#integrations">Integrations</a>
+        <a href="/integrations/">Integrations</a>
         <a href="#pricing">Usage & pricing</a>
       </nav>
       <a className="button button-small header-cta" href="/get-started/">

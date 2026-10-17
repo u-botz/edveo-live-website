@@ -31,8 +31,8 @@ export function MarketingContent() {
             </h1>
             <p className="hero-description">
               Bring your teachers, students, and ideas together. A focused
-              classroom for your institute, with a dashboard of its own—or a
-              place in your platform.
+              classroom for your institute. Schedule sessions, teach together,
+              and keep your class records in one workspace.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="/get-started/">
@@ -350,16 +350,14 @@ export function MarketingContent() {
         <section className="ways-section" id="your-way">
           <div className="section-wrap">
             <div className="center-heading">
-              <p className="eyebrow">ONE CLASSROOM. TWO WAYS IN.</p>
+              <p className="eyebrow">YOUR LIVE TEACHING WORKSPACE</p>
               <h2>
                 Your institute.
                 <br />
                 <span className="serif-word">Your way to teach.</span>
               </h2>
               <p>
-                Starting fresh or building on what you have?
-                <br />
-                Choose the path that fits your team.
+                A simple place for your team to schedule, teach, and follow up.
               </p>
             </div>
             <ProductPaths />
@@ -433,10 +431,7 @@ export function MarketingContent() {
                   <i>03</i> Receive class updates
                 </span>
               </div>
-              <a
-                className="button button-light"
-                href="/get-started/?path=integration"
-              >
+              <a className="button button-light" href="/integrations/">
                 Plan an integration <span>↗</span>
               </a>
               <p className="integration-status">
@@ -504,10 +499,9 @@ export function MarketingContent() {
                 Do we need to move our institute to Edveo?<span>+</span>
               </summary>
               <p>
-                The product is being designed with two paths: a live-only
-                dashboard, or classrooms connected to your existing platform.
-                The integration path is planned for a pilot, so you can evaluate
-                it against your current workflow.
+                Get started takes you to Edveo account setup for the teaching
+                workspace. If you already have a platform, visit Integrations to
+                discuss the planned classroom API pilot separately.
               </p>
             </details>
             <details>
@@ -583,7 +577,7 @@ export function MarketingContent() {
               starts with <span className="serif-word">a conversation.</span>
             </h2>
             <p>
-              Map out your teaching needs. Find your path.
+              Create your account. Set up your institute.
               <br />
               Give your institute a focused place to go live.
             </p>
@@ -591,7 +585,7 @@ export function MarketingContent() {
               Find your setup <span>↗</span>
             </a>
             <span className="closing-note">
-              Choose your path. Continue when you’re ready.
+              One account for your teaching team.
             </span>
           </div>
         </section>
@@ -614,7 +608,7 @@ export function MarketingContent() {
         <div className="footer-links">
           <a href="#classroom">The classroom</a>
           <a href="#your-way">For institutes</a>
-          <a href="#integrations">Integration plan</a>
+          <a href="/integrations/">Integrations for developers</a>
           <a href="#pricing">Usage planner</a>
           <InfoButton kind="privacy">Privacy in this preview</InfoButton>
           <InfoButton kind="about">About this preview</InfoButton>

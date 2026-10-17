@@ -27,7 +27,7 @@ export function setupSummary(setup: OnboardingSetup): string {
       ? [`Platform: ${setup.platform.trim() || "To be discussed"}`]
       : []),
     "",
-    "Next: verify an account through Edveo signup, or discuss integration availability with the team.",
+    "Next: discuss live-class integration availability and pilot requirements with the team.",
     "This summary has not been submitted. No account, class, booking or API credential has been created.",
     "Access, capacity, recording retention and prices require confirmation.",
   ].join("\n");

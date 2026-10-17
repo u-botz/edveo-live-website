@@ -5,12 +5,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Edveo Live — Great teaching. Now, live.",
   description:
-    "Meet Edveo Live: a focused live-teaching workspace for institutes. Explore the classroom, a live-only dashboard, and a planned integration path for your platform.",
+    "A focused live-teaching workspace for institutes. Explore the classroom, create your account, and bring your teaching team together.",
   icons: { icon: "/favicon.svg" },
   openGraph: {
     title: "Edveo Live — Great teaching. Now, live.",
     description:
-      "One classroom. Two ways to make it yours. Explore live teaching for your institute.",
+      "A focused place to teach. Explore live teaching for your institute.",
     type: "website",
   },
 };
