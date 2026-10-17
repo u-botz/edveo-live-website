@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState, type KeyboardEvent } from "react";
-import { PlannerButton } from "./website-provider";
 
 export function ProductPaths() {
   const [path, setPath] = useState<"dashboard" | "platform">("dashboard");
@@ -76,9 +75,9 @@ export function ProductPaths() {
             <li>Clear teacher and student roles</li>
             <li>A connected class-to-replay workflow</li>
           </ul>
-          <PlannerButton className="text-link" mode="dashboard">
-            Plan your dashboard setup <span>↗</span>
-          </PlannerButton>
+          <a className="text-link" href="/get-started/?path=dashboard">
+            Set up your teaching workspace <span>↗</span>
+          </a>
         </div>
         <div className="dashboard-preview">
           <div className="dashboard-sidebar">
@@ -183,8 +182,8 @@ export function ProductPaths() {
             <li>Role-aware classroom launch</li>
             <li>Attendance and recording events</li>
           </ul>
-          <a className="text-link" href="#integrations">
-            Explore the integration plan <span>↗</span>
+          <a className="text-link" href="/get-started/?path=integration">
+            Plan your platform connection <span>↗</span>
           </a>
           <span className="availability-note">
             Live-class API: planned for integration pilot.

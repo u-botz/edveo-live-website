@@ -2,12 +2,7 @@ import { SiteHeader } from "./site-header";
 import { IntegrationExample } from "./integration-example";
 import { ProductPaths } from "./product-paths";
 import { UsageCalculator } from "./usage-calculator";
-import {
-  CopyrightYear,
-  DemoButton,
-  InfoButton,
-  PlannerButton,
-} from "./website-provider";
+import { CopyrightYear, DemoButton, InfoButton } from "./website-provider";
 
 export function MarketingContent() {
   return (
@@ -40,12 +35,12 @@ export function MarketingContent() {
               place in your platform.
             </p>
             <div className="hero-actions">
-              <DemoButton className="button button-primary">
-                Explore the classroom <span aria-hidden="true">↗</span>
-              </DemoButton>
-              <a className="text-link" href="#your-way">
-                Find your way to teach <span aria-hidden="true">→</span>
+              <a className="button button-primary" href="/get-started/">
+                Get started <span aria-hidden="true">↗</span>
               </a>
+              <DemoButton className="text-link">
+                Explore the classroom <span aria-hidden="true">→</span>
+              </DemoButton>
             </div>
             <div className="hero-footnote">
               <span className="small-check">✓</span> Teaching tools, together{" "}
@@ -438,9 +433,12 @@ export function MarketingContent() {
                   <i>03</i> Receive class updates
                 </span>
               </div>
-              <PlannerButton className="button button-light" mode="integration">
+              <a
+                className="button button-light"
+                href="/get-started/?path=integration"
+              >
                 Plan an integration <span>↗</span>
-              </PlannerButton>
+              </a>
               <p className="integration-status">
                 Integration pilot planned. Public live-class endpoints and
                 webhooks are not yet available.
@@ -563,10 +561,11 @@ export function MarketingContent() {
                 Is this service accepting signups?<span>+</span>
               </summary>
               <p>
-                This is a product website preview. The setup planner creates a
-                downloadable brief on your device; it does not register an
-                account or submit an enquiry. Live-only onboarding and public
-                integration access are not connected here.
+                Get started guides you to Edveo’s existing account setup, where
+                you verify your email and create your workspace. Live features
+                depend on your modules and permissions. The website guide does
+                not create an account or activate a live-only plan. External
+                live-class API access is still planned.
               </p>
             </details>
           </div>
@@ -588,11 +587,11 @@ export function MarketingContent() {
               <br />
               Give your institute a focused place to go live.
             </p>
-            <PlannerButton className="button button-primary">
-              Plan your Edveo Live setup <span>↗</span>
-            </PlannerButton>
+            <a className="button button-primary" href="/get-started/">
+              Find your setup <span>↗</span>
+            </a>
             <span className="closing-note">
-              A local planning brief. No signup required.
+              Choose your path. Continue when you’re ready.
             </span>
           </div>
         </section>

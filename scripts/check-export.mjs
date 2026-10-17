@@ -21,6 +21,36 @@ assert.ok(
   "Integration availability disclosure is missing",
 );
 assert.ok(html.includes("/_next/"), "Next.js client assets are missing");
+const onboarding = await readFile(
+  new URL("../out/get-started/index.html", import.meta.url),
+  "utf8",
+);
+assert.ok(
+  html.includes("/get-started/"),
+  "Homepage onboarding entry is missing",
+);
+assert.ok(
+  onboarding.includes("How would you like to teach?"),
+  "Onboarding route was not exported",
+);
+assert.ok(
+  onboarding.includes("https://app.edveo.co/auth/login"),
+  "Existing-user handoff is missing",
+);
+const onboardingIds = [...onboarding.matchAll(/\bid="([^"]+)"/g)].map(
+  (match) => match[1],
+);
+assert.equal(
+  onboardingIds.length,
+  new Set(onboardingIds).size,
+  "Duplicate onboarding HTML IDs",
+);
+for (const match of onboarding.matchAll(
+  /(?:src|href)="(\/[^"#?]+)(?:\?[^"#]*)?"/g,
+))
+  await access(
+    new URL("../out" + match[1].replaceAll("&amp;", "&"), import.meta.url),
+  );
 console.log(
   "Next.js export checks passed: assets, anchors, IDs, accessibility targets, and availability disclosure.",
 );

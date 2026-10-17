@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PlannerButton } from "./website-provider";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -50,9 +49,9 @@ export function SiteHeader() {
         <a href="#integrations">Integrations</a>
         <a href="#pricing">Usage & pricing</a>
       </nav>
-      <PlannerButton className="button button-small header-cta">
-        Plan your setup <span aria-hidden="true">↗</span>
-      </PlannerButton>
+      <a className="button button-small header-cta" href="/get-started/">
+        Get started <span aria-hidden="true">↗</span>
+      </a>
     </header>
   );
 }
