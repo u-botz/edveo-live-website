@@ -4,7 +4,7 @@ import { OnboardingWorkflow } from "@/components/onboarding-workflow";
 export const metadata: Metadata = {
   title: "Get started with live teaching | Edveo",
   description:
-    "Create your Edveo account or sign in to your existing institute. A simple starting point for live teaching.",
+    "Continue with Google to create your classroom or return to live teaching. No institute setup form.",
 };
 
 export default function GetStartedPage() {

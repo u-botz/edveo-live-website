@@ -2,7 +2,7 @@
   "name": "edveo-live-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Standalone Edveo Live product website and local interactive demonstration",
+  "description": "Live teaching website and Google onboarding into the existing Edveo platform",
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1 --port 4173",
     "build": "next build",

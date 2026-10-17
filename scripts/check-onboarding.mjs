@@ -12,6 +12,18 @@ try {
   });
   const errors = [];
   const writes = [];
+  let available = false;
+  const authUrl = process.env.NEXT_PUBLIC_LIVE_GOOGLE_AUTH_URL ?? "https://api.edveo.co/api/auth/live/google/redirect";
+  const statusUrl = new URL("status", authUrl).href;
+  const availabilityRequests = [];
+  await page.route(statusUrl, async (route) => {
+    availabilityRequests.push(route.request());
+    await route.fulfill({
+      status: 200, contentType: "application/json",
+      headers: { "Access-Control-Allow-Origin": "*" },
+      body: JSON.stringify({ data: { available } }),
+    });
+  });
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("request", (request) => {
     if (
@@ -25,15 +37,21 @@ try {
     timeout: 120000,
   });
   await expect(
-    page.getByRole("heading", { name: "Your next class starts here." }),
+    page.getByRole("heading", { name: "Your classroom awaits." }),
   ).toBeVisible();
   await expect(
-    page.getByRole("link", { name: "Create your account" }),
-  ).toHaveAttribute("href", "https://edveo.co/signup");
+    page.getByRole("button", { name: "Continue with Google" }),
+  ).toBeDisabled();
+  await expect(page.getByRole("status")).toHaveText("Google sign-in is temporarily unavailable. Please try again later.");
+  available = true;
+  await page.reload({ waitUntil: "networkidle" });
+  await expect(page.getByRole("button", { name: "Continue with Google" })).toBeEnabled();
   await expect(
-    page.getByRole("link", { name: /Sign in/ }).first(),
+    page.getByRole("link", { name: /Institute sign in/ }),
   ).toHaveAttribute("href", "https://app.edveo.co/auth/login");
   await expect(page.locator("form,input,select,[role=tablist]")).toHaveCount(0);
+  await expect(page.locator('a[href="https://edveo.co/signup"]')).toHaveCount(0);
+  await expect(page.getByText("Set up your institute", { exact: true })).toHaveCount(0);
   await expect(
     page.getByText("Connect our own platform", { exact: true }),
   ).toHaveCount(0);
@@ -53,6 +71,31 @@ try {
     await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)
   )
     throw new Error("Account entry overflows on mobile");
+  await page.route(authUrl, (route) => route.fulfill({
+    status: 200, contentType: "text/html", body: "<h1>Authentication handoff verified</h1>",
+  }));
+  await page.getByRole("button", { name: "Continue with Google" }).click();
+  await expect(page).toHaveURL(authUrl);
+  await expect(page.getByRole("heading", { name: "Authentication handoff verified" })).toBeVisible();
+  await page.goBack({ waitUntil: "networkidle" });
+  await expect(page.getByRole("button", { name: "Continue with Google" })).toBeEnabled();
+  for (const [code, message] of [
+    ["cancelled", "Sign-in cancelled."],
+    ["session_expired", "Your sign-in expired."],
+    ["unverified_email", "verified email address"],
+    ["__proto__", "We couldn’t sign you in."],
+  ]) {
+    await page.goto(`${origin}/get-started/?error=${code}`, { waitUntil: "networkidle" });
+    await expect(page.locator(".live-signin-error[role=alert]")).toContainText(message);
+    await expect(page.getByRole("button", { name: "Continue with Google" })).toBeEnabled();
+  }
+  await page.unroute(statusUrl);
+  await page.route(statusUrl, (route) => route.fulfill({ status: 404, body: "Not deployed" }));
+  await page.goto(`${origin}/get-started/`, { waitUntil: "networkidle" });
+  await expect(page.getByRole("button", { name: "Continue with Google" })).toBeDisabled();
+  await expect(page.getByRole("status")).toContainText("temporarily unavailable");
+  if (availabilityRequests.some((request) => request.headers().cookie))
+    throw new Error("Availability check unexpectedly sent a cookie");
   await page.goto(`${origin}/integrations/`, { waitUntil: "networkidle" });
   await expect(
     page.getByRole("heading", { name: "Your platform. A place to teach." }),
@@ -108,7 +151,7 @@ try {
   if (errors.length || writes.length)
     throw new Error([...errors, ...writes].join("\n"));
   console.log(
-    "Simplified onboarding checks passed: one account CTA, no chooser or questionnaire, separate integration page, validation/edit, handoff URLs, mobile overflow, no API writes/storage.",
+    "Google onboarding checks passed: readiness gating, dedicated auth handoff, return navigation, cancellation/expiry/error recovery, no questionnaire, separate integration page, mobile layout, no API writes or browser token storage. Google itself is stubbed; no real account created.",
   );
 } finally {
   await browser.close();

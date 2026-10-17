@@ -7,7 +7,8 @@ export type OnboardingSetup = {
   students: string;
   platform: string;
 };
-export const SIGNUP_URL = "https://edveo.co/signup";
+// Public redirect endpoint, never a client secret. Status is checked without cookies before enabling.
+export const LIVE_GOOGLE_AUTH_URL = process.env.NEXT_PUBLIC_LIVE_GOOGLE_AUTH_URL ?? "https://api.edveo.co/api/auth/live/google/redirect";
 export const SIGNIN_URL = "https://app.edveo.co/auth/login";
 export const CONTACT_EMAIL = "sayanth@edveo.co";
 export const teachingLabels: Record<TeachingType, string> = {

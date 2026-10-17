@@ -3279,6 +3279,10 @@ body:has(dialog[open]) {
 .simple-access-page {
   display: flex;
   flex-direction: column;
+  background: #f1f3f6;
+  --ink: #111827;
+  --muted: #64748b;
+  --line: #e2e8f0;
 }
 .simple-access-main {
   width: 100%;
@@ -3311,7 +3315,7 @@ body:has(dialog[open]) {
   letter-spacing: 0.12em;
 }
 .simple-access-card h1 {
-  font-size: 38px;
+  font-size: 28px;
   line-height: 1.2;
   margin: 16px 0;
 }
@@ -3325,14 +3329,36 @@ body:has(dialog[open]) {
   justify-content: space-between;
 }
 .simple-access-methods {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.7;
   margin-top: 12px;
 }
 .simple-access-existing {
   font-size: 13px;
   margin-top: 24px;
+  text-align: center;
 }
+.google-signin-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 28px;
+  padding: 12px 20px;
+  border: 1px solid #747775;
+  border-radius: 8px;
+  background: #fff;
+  color: #1f1f1f;
+  font: 500 14px/20px Arial, sans-serif;
+  cursor: pointer;
+}
+.google-signin-button svg { flex-shrink: 0; }
+.google-signin-button:hover:not(:disabled) { background: #f8fafd; }
+.google-signin-button:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+.google-signin-button:disabled { cursor: not-allowed; opacity: 0.65; }
+.live-signin-error { font-size: 13px; line-height: 1.6; margin: 20px 0 0; color: #b91c1c; }
 .simple-access-existing a {
   color: var(--onboarding-accent);
   font-weight: 650;
@@ -3582,7 +3608,7 @@ body:has(dialog[open]) {
     padding: 28px 20px 24px;
   }
   .simple-access-card h1 {
-    font-size: 32px;
+    font-size: 26px;
   }
   .simple-access-steps {
     gap: 12px;

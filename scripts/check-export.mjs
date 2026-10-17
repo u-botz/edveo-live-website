@@ -30,7 +30,7 @@ assert.ok(
   "Homepage onboarding entry is missing",
 );
 assert.ok(
-  onboarding.includes("Your next class"),
+  onboarding.includes("Your classroom awaits."),
   "Onboarding route was not exported",
 );
 assert.ok(
@@ -41,7 +41,9 @@ const onboardingIds = [...onboarding.matchAll(/\bid="([^"]+)"/g)].map(
   (match) => match[1],
 );
 assert.ok(!onboarding.includes('Choose your path'), 'Onboarding still contains a path chooser');
-assert.ok(onboarding.includes('https://edveo.co/signup'), 'Account setup handoff is missing');
+assert.ok(onboarding.includes('Continue with Google'), 'Google entry is missing');
+assert.ok(!onboarding.includes('href="https://edveo.co/signup"'), 'Live still redirects to institute registration');
+assert.ok(!onboarding.includes('Set up your institute'), 'Institute questionnaire is still advertised');
 const integrations = await readFile(new URL('../out/integrations/index.html', import.meta.url), 'utf8');
 assert.ok(integrations.includes('Tell us about your platform.'), 'Separate integrations page is missing');
 assert.equal(

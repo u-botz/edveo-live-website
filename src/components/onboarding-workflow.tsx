@@ -1,11 +1,58 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { CONTACT_EMAIL, SIGNIN_URL, SIGNUP_URL } from "@/lib/onboarding";
+import { CONTACT_EMAIL, SIGNIN_URL, LIVE_GOOGLE_AUTH_URL } from "@/lib/onboarding";
+
+const errors: Record<string, string> = {
+  cancelled: "Sign-in cancelled. You can try again whenever you’re ready.",
+  session_expired: "Your sign-in expired. Please try again.",
+  unverified_email: "Choose a Google account with a verified email address.",
+  account_unavailable: "We couldn’t open your classroom. Please contact support.",
+  unavailable: "Google sign-in isn’t available yet. Please try again later.",
+  sign_in_failed: "We couldn’t sign you in. Please try again.",
+};
 
 export function OnboardingWorkflow() {
+  const [message, setMessage] = useState("");
+  const [leaving, setLeaving] = useState(false);
+  const [availability, setAvailability] = useState<"checking" | "ready" | "unavailable">("checking");
+  useEffect(() => {
+    const error = new URLSearchParams(window.location.search).get("error");
+    if (error) setMessage(Object.hasOwn(errors, error) ? errors[error] : errors.sign_in_failed);
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 8000);
+    async function checkAvailability() {
+      try {
+        if (!LIVE_GOOGLE_AUTH_URL) throw new Error("Unavailable");
+        const response = await fetch(new URL("status", LIVE_GOOGLE_AUTH_URL), {
+          credentials: "omit", cache: "no-store", signal: controller.signal,
+        });
+        if (!response.ok) throw new Error("Unavailable");
+        const result: unknown = await response.json();
+        const available = typeof result === "object" && result !== null && "data" in result
+          && typeof result.data === "object" && result.data !== null && "available" in result.data
+          && result.data.available === true;
+        setAvailability(available ? "ready" : "unavailable");
+      } catch {
+        setAvailability("unavailable");
+      } finally {
+        window.clearTimeout(timeout);
+      }
+    }
+    void checkAvailability();
+    const reset = () => setLeaving(false);
+    window.addEventListener("pageshow", reset);
+    return () => {
+      controller.abort();
+      window.clearTimeout(timeout);
+      window.removeEventListener("pageshow", reset);
+    };
+  }, []);
   return (
     <div className="onboarding-page simple-access-page">
       <a className="skip-link" href="#onboarding-main">
-        Skip to account setup
+        Skip to sign in
       </a>
       <header className="onboarding-header">
         <Link className="brand" href="/" aria-label="Edveo home">
@@ -15,7 +62,7 @@ export function OnboardingWorkflow() {
           <span>edveo</span>
         </Link>
         <p>
-          Already with Edveo? <a href={SIGNIN_URL}>Sign in ↗</a>
+          <Link href="/">Back to home ↗</Link>
         </p>
       </header>
       <main id="onboarding-main" className="simple-access-main">
@@ -34,44 +81,39 @@ export function OnboardingWorkflow() {
               <path d="m15 10 6-3v10l-6-3" />
             </svg>
           </div>
-          <p className="simple-access-eyebrow">LET’S GET YOU TEACHING</p>
           <h1 id="access-title">
-            Your next class
-            <br />
-            starts here.
+            Your classroom awaits.
           </h1>
           <p className="simple-access-description">
-            Create your Edveo account, then bring your teachers and students
-            together.
+            Sign in with Google and start your next class.
           </p>
-          <a
-            className="button button-primary simple-access-cta"
-            href={SIGNUP_URL}
+          <button
+            className="google-signin-button"
+            disabled={availability !== "ready" || leaving}
+            aria-describedby="google-signin-note"
+            onClick={() => {
+              if (availability !== "ready" || leaving) return;
+              setLeaving(true);
+              window.location.assign(LIVE_GOOGLE_AUTH_URL);
+            }}
           >
-            Create your account <span aria-hidden="true">→</span>
-          </a>
-          <p className="simple-access-methods">
-            Google and email signup are available in Edveo account setup.
+            <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true">
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5Z" />
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6C44.4 38.02 46.98 31.86 46.98 24.55Z" />
+              <path fill="#FBBC05" d="M10.53 28.59A14.4 14.4 0 0 1 9.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.19A23.9 23.9 0 0 0 0 24c0 3.87.93 7.53 2.56 10.78l7.97-6.19Z" />
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.91-5.8l-7.73-6c-2.15 1.45-4.92 2.3-8.18 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48Z" />
+            </svg>
+            {leaving ? "Opening Google…" : "Continue with Google"}
+          </button>
+          <p id="google-signin-note" className="simple-access-methods" role="status">
+            {availability === "unavailable"
+              ? "Google sign-in is temporarily unavailable. Please try again later."
+              : availability === "checking" ? "Checking sign-in availability…"
+              : "New here? Your classroom is created automatically."}
           </p>
-          <div className="simple-access-existing">
-            Have an institute account? <a href={SIGNIN_URL}>Sign in</a>
-          </div>
-          <ol className="simple-access-steps" aria-label="Getting started">
-            <li>
-              <span>1</span>Sign up
-            </li>
-            <li>
-              <span>2</span>Set up your institute
-            </li>
-            <li>
-              <span>3</span>Create a session
-            </li>
-          </ol>
+          {message && <p className="live-signin-error" role="alert">{message}</p>}
         </section>
-        <p className="simple-access-note">
-          You’ll continue to Edveo’s secure account setup. Live features depend
-          on your account access.
-        </p>
+        <p className="simple-access-existing">Using an institute account? <a href={SIGNIN_URL}>Institute sign in ↗</a></p>
         <details className="onboarding-student">
           <summary>Joining a class or accepting an invitation?</summary>
           <p>
