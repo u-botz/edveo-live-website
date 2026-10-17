@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+.sites-runtime/
+.DS_Store
+*.log
+.sites-local/
+*.tar.gz
+qa/
