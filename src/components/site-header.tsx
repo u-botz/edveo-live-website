@@ -44,13 +44,13 @@ export function SiteHeader() {
         aria-label="Main navigation"
         onClick={() => setOpen(false)}
       >
-        <a href="#classroom">The classroom</a>
-        <a href="#your-way">Your way to teach</a>
+        <a href="#classroom">1:1 classroom</a>
+        <a href="#your-way">For tutors &amp; institutes</a>
         <a href="/integrations/">Integrations</a>
         <a href="#pricing">Usage & pricing</a>
       </nav>
       <a className="button button-small header-cta" href="/get-started/">
-        Get started <span aria-hidden="true">↗</span>
+        Start teaching 1:1 <span aria-hidden="true">↗</span>
       </a>
     </header>
   );

@@ -1,14 +1,13 @@
 import type { ProductMode } from "../components/website-provider";
 
 const modeNames: Record<ProductMode, string> = {
-  dashboard: "Live-only dashboard",
-  integration: "Existing-platform integration",
+  dashboard: "Edveo teaching workspace",
+  integration: "1:1 classroom integration",
   both: "Explore both paths",
 };
 export type SetupBrief = {
   institute: string;
   mode: ProductMode;
-  students: number;
   concurrent: number;
   classes: number;
   retention: string;
@@ -18,19 +17,19 @@ export type SetupBrief = {
 
 export function buildSetupBrief(data: SetupBrief): string {
   return [
-    "EDVEO LIVE — INSTITUTE SETUP BRIEF",
+    "EDVEO LIVE — ONE-TO-ONE TEACHING BRIEF",
     "Created locally in the product website preview.",
     "",
-    `Institute: ${data.institute.trim()}`,
+    `Tutor or institute: ${data.institute.trim()}`,
     `Preferred path: ${modeNames[data.mode]}`,
-    `Students per class: ${data.students}`,
-    `Simultaneous classes requested: ${data.concurrent}`,
-    `Classes per month: ${data.classes}`,
+    "Lesson format: 1 teacher + 1 student",
+    `Simultaneous 1:1 lessons requested: ${data.concurrent}`,
+    `1:1 lessons per month: ${data.classes}`,
     `Recording preference: ${data.recording ? "Include recordings" : "No recordings requested"}`,
     `Requested replay retention: ${data.retention}`,
     "",
-    "ILLUSTRATIVE USAGE (one teacher, 60-minute classes, full attendance)",
-    `Participant-minutes per month: ${(data.students + 1) * data.classes * 60}`,
+    "ILLUSTRATIVE USAGE (one teacher + one student, 60-minute lessons)",
+    `Participant-minutes per month: ${2 * data.classes * 60}`,
     `Teaching hours per month: ${data.classes}`,
     `Recording hours per month: ${data.recording ? data.classes : 0}`,
     "",

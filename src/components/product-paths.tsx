@@ -2,23 +2,24 @@ export function ProductPaths() {
   return (
     <div className="path-panel" id="dashboard-panel">
       <div className="path-copy">
-        <span className="path-label">FOR INSTITUTE TEAMS</span>
+        <span className="path-label">FOR PRIVATE TUTORS AND TUTORING INSTITUTES</span>
         <h3>
-          Your live teaching day.
+          A day of 1:1 lessons.
           <br />
           All in one place.
         </h3>
         <p>
-          A focused workspace for scheduling classes, organising teacher access,
-          and following up on attendance and recordings.
+          Keep each student’s lesson on the timetable. Coordinate your tutors,
+          schedule individual teaching or mentoring sessions, and follow up on
+          attendance and available recordings.
         </p>
         <ul className="check-list">
-          <li>A home for upcoming and past classes</li>
-          <li>Clear teacher and student roles</li>
-          <li>A connected class-to-replay workflow</li>
+          <li>One teacher and one student in each lesson</li>
+          <li>Individual schedules across your teaching team</li>
+          <li>Attendance and available replays for each student</li>
         </ul>
         <a className="text-link" href="/get-started/">
-          Set up your teaching workspace <span>↗</span>
+          Open your 1:1 teaching workspace <span>↗</span>
         </a>
       </div>
       <div className="dashboard-preview">
@@ -32,19 +33,19 @@ export function ProductPaths() {
         <div className="dashboard-content">
           <div className="dashboard-greeting">
             <div>
-              <small>YOUR TEACHING WORKSPACE</small>
-              <h4>A good day to inspire.</h4>
+              <small>YOUR 1:1 TEACHING WORKSPACE</small>
+              <h4>Every student has their time.</h4>
             </div>
             <span className="dashboard-user">AK</span>
           </div>
           <div className="dashboard-stats">
             <div>
-              <span>Upcoming classes</span>
+              <span>1:1 lessons today</span>
               <strong>03</strong>
             </div>
             <div>
-              <span>Demo teachers</span>
-              <strong>04</strong>
+              <span>Demo tutors</span>
+              <strong>03</strong>
             </div>
             <div>
               <span>Recording preview</span>
@@ -64,7 +65,7 @@ export function ProductPaths() {
             <span className="schedule-line peach-line"></span>
             <div>
               <strong>Mathematics · Quadratics</strong>
-              <small>Ananya Mehta · Foundation batch</small>
+              <small>Ananya → Sara · 1:1 teaching</small>
             </div>
             <span className="status-chip">Upcoming</span>
           </div>
@@ -77,7 +78,7 @@ export function ProductPaths() {
             <span className="schedule-line green-line"></span>
             <div>
               <strong>Physics · Motion &amp; forces</strong>
-              <small>Kabir Shah · Revision group</small>
+              <small>Kabir → Rohan · 1:1 teaching</small>
             </div>
             <span className="status-chip">Upcoming</span>
           </div>
@@ -90,12 +91,12 @@ export function ProductPaths() {
             <span className="schedule-line purple-line"></span>
             <div>
               <strong>English · The art of expression</strong>
-              <small>Meera Rao · Language lab</small>
+              <small>Meera → Aisha · 1:1 mentoring</small>
             </div>
             <span className="status-chip">Upcoming</span>
           </div>
           <div className="demo-caption">
-            LIVE-ONLY DASHBOARD CONCEPT · SAMPLE DATA
+            1:1 TIMETABLE PREVIEW · SAMPLE DATA
           </div>
         </div>
       </div>

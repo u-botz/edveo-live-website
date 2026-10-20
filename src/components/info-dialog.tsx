@@ -15,8 +15,8 @@ const information = {
   about: {
     title: "A preview of Edveo Live",
     paragraphs: [
-      "Edveo Live is a proposed focused live-teaching product for institutes, with a live-only dashboard and a planned integration path for existing learning platforms.",
-      "People, classes, attendance and recording examples are illustrative. Get started provides a setup guide and links to existing Edveo signup and sign-in. It does not create an account, activate a live-only plan, issue API credentials or book a demo. The external live-class API is still planned.",
+      "Edveo Live focuses on one-to-one online teaching for private tutors and tutoring institutes. Each lesson brings one teacher and one student together in the existing Edveo teaching workspace.",
+      "People, lessons, attendance and recording examples are illustrative. Get started opens Google sign-in when backend registration is enabled. The classroom demo does not start a real call. External classroom API access is still planned and no integration credentials are issued here.",
       "The product builds on existing Edveo classroom code. Pilot capabilities, capacity, availability, branding, pricing, and support arrangements remain to be confirmed.",
     ],
   },

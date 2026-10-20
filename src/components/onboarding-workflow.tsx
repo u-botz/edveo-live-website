@@ -82,10 +82,10 @@ export function OnboardingWorkflow() {
             </svg>
           </div>
           <h1 id="access-title">
-            Your classroom awaits.
+            Your 1:1 classroom awaits.
           </h1>
           <p className="simple-access-description">
-            Sign in with Google and start your next class.
+            Sign in with Google to teach one student at a time.
           </p>
           <button
             className="google-signin-button"
@@ -117,13 +117,13 @@ export function OnboardingWorkflow() {
         <details className="onboarding-student">
           <summary>Joining a class or accepting an invitation?</summary>
           <p>
-            Use the class or invitation link your institute sent you. You do not
+            Use the lesson or invitation link your tutor or institute sent you. You do not
             need to create a separate institute account.
           </p>
         </details>
       </main>
       <footer className="onboarding-footer">
-        <span>Edveo · Built around your teaching.</span>
+        <span>Edveo · Built for one-to-one teaching.</span>
         <a href={`mailto:${CONTACT_EMAIL}`}>Need help?</a>
       </footer>
     </div>

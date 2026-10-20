@@ -5,9 +5,7 @@ import {
   CONTACT_EMAIL,
   integrationEmail,
   setupSummary,
-  teachingLabels,
   type OnboardingSetup,
-  type TeachingType,
 } from "@/lib/onboarding";
 
 export function IntegrationEnquiry() {
@@ -15,19 +13,11 @@ export function IntegrationEnquiry() {
     path: "integration",
     institute: "",
     platform: "",
-    students: "Not sure yet",
-    teaching: ["group"],
   });
   const [prepared, setPrepared] = useState(false);
-  const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
   function prepare(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!setup.teaching.length) {
-      setError("Select at least one session type.");
-      return;
-    }
-    setError("");
     setPrepared(true);
   }
   async function copy() {
@@ -51,7 +41,7 @@ export function IntegrationEnquiry() {
           <span>edveo</span>
         </Link>
         <Link className="text-link" href="/get-started/">
-          Start teaching ↗
+          Start teaching 1:1 ↗
         </Link>
       </header>
       <main id="integration-main" className="integration-enquiry-main">
@@ -63,19 +53,20 @@ export function IntegrationEnquiry() {
             <p className="simple-access-eyebrow">FOR PLATFORM TEAMS</p>
             <h1>
               Your platform.
-              <br />A place to teach.
+              <br />A place for 1:1.
             </h1>
             <p>
-              Explore adding live classrooms to your website or LMS. Plan the
-              connection with our team before committing developer time.
+              Bring a dedicated teacher-and-student classroom to your tutoring
+              website or LMS. Plan the connection with our team before committing
+              developer time.
             </p>
             <span className="integration-pilot-label">
-              Live-class API · pilot planning
+              1:1 classroom API · pilot planning
             </span>
             <ol>
               <li>
                 <strong>Scope the connection</strong>
-                <p>Confirm your audience, class sizes, and access needs.</p>
+                <p>Confirm your tutoring workflow, simultaneous lessons, and access needs.</p>
               </li>
               <li>
                 <strong>Prepare a test integration</strong>
@@ -109,7 +100,7 @@ export function IntegrationEnquiry() {
                 </p>
                 <div className="onboarding-fields">
                   <label htmlFor="integration-institute">
-                    Institute name
+                    Tutor or institute name
                     <input
                       id="integration-institute"
                       autoComplete="organization"
@@ -118,7 +109,7 @@ export function IntegrationEnquiry() {
                       onChange={(event) =>
                         setSetup({ ...setup, institute: event.target.value })
                       }
-                      placeholder="Your institute or academy"
+                      placeholder="Your tutoring business or institute"
                     />
                   </label>
                   <label htmlFor="integration-platform">
@@ -136,68 +127,11 @@ export function IntegrationEnquiry() {
                       A name is enough. Do not enter passwords or API keys.
                     </small>
                   </label>
-                  <fieldset
-                    className="onboarding-teaching"
-                    aria-describedby={
-                      error ? "integration-type-error" : undefined
-                    }
-                  >
-                    <legend>Session types</legend>
-                    <div>
-                      {(Object.keys(teachingLabels) as TeachingType[]).map(
-                        (type) => (
-                          <label key={type}>
-                            <input
-                              type="checkbox"
-                              checked={setup.teaching.includes(type)}
-                              onChange={() => {
-                                setError("");
-                                setSetup({
-                                  ...setup,
-                                  teaching: setup.teaching.includes(type)
-                                    ? setup.teaching.filter(
-                                        (value) => value !== type,
-                                      )
-                                    : [...setup.teaching, type],
-                                });
-                              }}
-                            />
-                            {teachingLabels[type]}
-                          </label>
-                        ),
-                      )}
-                    </div>
-                    {error && (
-                      <p
-                        id="integration-type-error"
-                        role="alert"
-                        className="onboarding-error"
-                      >
-                        {error}
-                      </p>
-                    )}
-                  </fieldset>
-                  <label htmlFor="integration-size">
-                    Typical students per class
-                    <select
-                      id="integration-size"
-                      value={setup.students}
-                      onChange={(event) =>
-                        setSetup({ ...setup, students: event.target.value })
-                      }
-                    >
-                      {[
-                        "1 student",
-                        "2–10",
-                        "Up to 30",
-                        "31–100",
-                        "More than 100",
-                        "Not sure yet",
-                      ].map((value) => (
-                        <option key={value}>{value}</option>
-                      ))}
-                    </select>
-                  </label>
+                  <div className="one-to-one-usage">
+                    <span className="path-label">ONE-TO-ONE ONLY</span>
+                    <strong>1 teacher + 1 student per lesson</strong>
+                    <p>For private teaching, individual academic support, and personal mentoring.</p>
+                  </div>
                 </div>
                 <button
                   className="button button-primary integration-prepare"

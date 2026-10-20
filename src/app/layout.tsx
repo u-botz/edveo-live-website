@@ -3,14 +3,14 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Edveo Live — Great teaching. Now, live.",
+  title: "Edveo Live — Online classrooms for 1:1 teaching",
   description:
-    "A focused live-teaching workspace for institutes. Explore the classroom, create your account, and bring your teaching team together.",
+    "One teacher. One student. Their pace. Online classrooms for private tutors and institutes offering one-to-one lessons, academic support, and personal mentoring.",
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "Edveo Live — Great teaching. Now, live.",
+    title: "Edveo Live — Online classrooms for 1:1 teaching",
     description:
-      "A focused place to teach. Explore live teaching for your institute.",
+      "A dedicated classroom for one teacher and one student. Built for private tutors and 1:1 teaching teams.",
     type: "website",
   },
 };

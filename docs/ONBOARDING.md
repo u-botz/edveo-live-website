@@ -2,7 +2,10 @@
 
 The website is a focused entrance to Edveo's existing dashboard and backend. `/get-started/` uses
 Google only; there is no institute questionnaire, password form, local account store, or separate
-dashboard. Integrations remain at `/integrations/`.
+dashboard. The website targets private tutors and institutes offering 1:1 lessons and personal
+mentoring, with one teacher and one student per lesson. Integrations remain at `/integrations/`;
+their enquiry has the same fixed 1:1 format. The usage calculator and downloaded brief count two
+participants per 60-minute lesson, with no group-size selector.
 
 `NEXT_PUBLIC_LIVE_GOOGLE_AUTH_URL` is the public redirect endpoint, defaulting to
 `https://api.edveo.co/api/auth/live/google/redirect`. No secret belongs in this variable.
@@ -16,7 +19,9 @@ Successful authentication sets the existing Edveo httpOnly cookie on the API and
 existing `app.edveo.co/admin/live-sessions/quick-start` route. New users get an existing Edveo online
 workspace automatically; returning users reuse it. Existing institute sign-in and invitation links stay available.
 
-Production hostname target: `live.edveo.co`. DNS/TLS and Google Console setup are separate activation
+Preferred website hostname: `edveo.live` on Vercel, once purchased and connected. Keep the existing
+`live.edveo.co` media endpoint unchanged. Set the backend's `LIVE_REGISTRATION_ENTRY_URL` to the
+actual website `/get-started/` address. DNS/TLS and Google Console setup are separate activation
 steps. Backend configuration and deployment details are in `backend/docs/LIVE_GOOGLE_ONBOARDING.md`
 in the parent workspace. The website's published preview does not deploy or activate the Laravel API.
 

@@ -15,50 +15,45 @@ export function MarketingContent() {
         <section className="hero section-wrap">
           <div className="hero-copy">
             <div className="eyebrow">
-              <span className="live-dot"></span> A NEW SPACE FOR LIVE LEARNING
+              <span className="live-dot"></span> ONLINE CLASSROOMS FOR 1:1 TEACHING
             </div>
             <h1>
-              Great teaching.
+              One teacher.
               <br />
-              Now, <span className="serif-word">live.</span>
-              <svg
-                className="underline"
-                viewBox="0 0 205 19"
-                aria-hidden="true"
-              >
-                <path d="M3 13Q92-5 201 8M25 17Q102 5 179 13"></path>
-              </svg>
+              One student.
+              <br />
+              <span className="serif-word">Their pace.</span>
             </h1>
             <p className="hero-description">
-              Bring your teachers, students, and ideas together. A focused
-              classroom for your institute. Schedule sessions, teach together,
-              and keep your class records in one workspace.
+              A dedicated online classroom for private tutors and institutes
+              offering one-to-one lessons. Schedule each student’s session,
+              explain at their pace, and keep the lesson connected.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="/get-started/">
-                Get started <span aria-hidden="true">↗</span>
+                Start teaching 1:1 <span aria-hidden="true">↗</span>
               </a>
               <DemoButton className="text-link">
                 Explore the classroom <span aria-hidden="true">→</span>
               </DemoButton>
             </div>
             <div className="hero-footnote">
-              <span className="small-check">✓</span> Teaching tools, together{" "}
+              <span className="small-check">✓</span> One teacher + one student{" "}
               <span className="footnote-divider">/</span> Built on Edveo
             </div>
           </div>
           <div
             className="hero-visual"
-            aria-label="Illustrative Edveo Live classroom, not an active class"
+            aria-label="Illustrative 1:1 classroom with one teacher and one student, not an active class"
           >
             <div className="orb orb-one"></div>
             <div className="orb orb-two"></div>
             <div className="floating-note note-top">
               <span className="note-icon">✦</span>
               <span>
-                A little more interaction.
+                Their pace. Their questions.
                 <br />
-                <strong>A lot more possibility.</strong>
+                <strong>Your undivided attention.</strong>
               </span>
             </div>
             <div className="classroom-window">
@@ -77,9 +72,9 @@ export function MarketingContent() {
               <div className="classroom-title">
                 <div>
                   <span className="class-live">
-                    <span className="live-dot"></span> CLASSROOM PREVIEW
+                    <span className="live-dot"></span> 1:1 LESSON PREVIEW
                   </span>
-                  <h2>Every question is a new beginning.</h2>
+                  <h2>Ananya &amp; Sara · Mathematics</h2>
                 </div>
                 <span className="class-time">10:24</span>
               </div>
@@ -163,26 +158,21 @@ export function MarketingContent() {
                     </div>
                   </div>
                 </div>
-                <aside className="student-strip">
+                <aside className="student-strip" aria-label="One teacher and one student">
                   <div className="person-tile teacher-tile">
                     <div className="avatar-art teacher-avatar">AM</div>
                     <span>Ananya · Teacher</span>
                     <i className="audio-bars">▂▆▃</i>
                   </div>
-                  <div className="person-tile student-one">
-                    <div className="avatar-art">RK</div>
-                    <span>Rohan</span>
-                    <i>⌁</i>
-                  </div>
                   <div className="person-tile student-two">
                     <div className="avatar-art">SJ</div>
-                    <span>Sara</span>
+                    <span>Sara · Student</span>
                     <i>⌁</i>
                   </div>
-                  <div className="more-students">
-                    <span className="mini-avatar">A</span>
-                    <span className="mini-avatar">N</span>
-                    <span>+ demo learners</span>
+                  <div className="lesson-pair-note">
+                    <strong>1 teacher</strong>
+                    <span>+</span>
+                    <strong>1 student</strong>
                   </div>
                 </aside>
               </div>
@@ -194,7 +184,7 @@ export function MarketingContent() {
                   <span className="selected-control">✎</span>
                 </div>
                 <span className="classroom-safe">
-                  A space to think out loud.
+                  A lesson at Sara’s pace.
                 </span>
                 <DemoButton className="try-room">
                   Try it <span aria-hidden="true">↗</span>
@@ -204,37 +194,37 @@ export function MarketingContent() {
             <div className="floating-note note-bottom">
               <span className="attendance-icon">✓</span>
               <span>
-                <strong>Present. Participating. Learning.</strong>
+                <strong>Every lesson starts with one learner.</strong>
                 <br />
-                Keep the class journey connected.
+                Make space for their next breakthrough.
               </span>
               <span className="little-spark">✧</span>
             </div>
           </div>
         </section>
         <div className="benefit-ribbon">
-          <span>Made for the way you teach</span>
+          <span>Built around one learner</span>
           <div>
-            <span>↗ Interactive classrooms</span>
-            <span>▦ A focused workspace</span>
-            <span>⌘ Your platform, connected</span>
+            <span>↗ Private tutoring</span>
+            <span>▦ Individual academic support</span>
+            <span>⌘ Personal mentoring</span>
           </div>
         </div>
 
         <section className="section-wrap journey-section" id="classroom">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">LESS SWITCHING. MORE TEACHING.</p>
+              <p className="eyebrow">PERSONAL ATTENTION. ROOM TO UNDERSTAND.</p>
               <h2>
-                A good class is more
+                Help one student
                 <br />
-                than a video call.
+                find their way forward.
               </h2>
             </div>
             <p>
-              Make room for the explanation, the raised hand, and the moment it
-              clicks. Bring the class journey together, from the first invite to
-              the next revision.
+              Slow down where they need help. Go deeper where they’re curious.
+              Give every explanation, question, and worked example the attention
+              it deserves.
             </p>
           </div>
           <div className="feature-grid">
@@ -244,12 +234,12 @@ export function MarketingContent() {
                 <span className="feature-symbol">✎</span>
               </div>
               <h3>
-                Ideas deserve
-                <br />a bigger canvas.
+                Work through it.
+                <br />Together.
               </h3>
               <p>
-                Explain on a whiteboard, share your screen, and bring learning
-                materials into the conversation.
+                Work through a problem with your student on the whiteboard.
+                Share your screen and explain each step at their pace.
               </p>
               <div className="mini-board" aria-hidden="true">
                 <span className="sticky-note">
@@ -281,17 +271,17 @@ export function MarketingContent() {
             </article>
             <article className="feature-card conversation-card">
               <div className="card-topline">
-                <span className="feature-number">02 / HEAR EVERY VOICE</span>
+                <span className="feature-number">02 / FOLLOW THEIR THINKING</span>
                 <span className="feature-symbol">☏</span>
               </div>
               <h3>
-                Make participation
+                Their questions.
                 <br />
-                part of the lesson.
+                Your full attention.
               </h3>
               <p>
-                Keep questions close with classroom chat, hand raises, and
-                teacher controls.
+                Keep the conversation between teacher and student. Use lesson
+                chat to share a question, a link, or the next example.
               </p>
               <div className="chat-preview">
                 <div>
@@ -324,8 +314,8 @@ export function MarketingContent() {
                 Learning carries on.
               </h3>
               <p>
-                Bring attendance and recording access into the class workflow,
-                so follow-up has a place.
+                Review the student’s attendance and revisit available lesson
+                recordings, ready for your next session together.
               </p>
               <div className="replay-preview">
                 <div className="replay-thumb">
@@ -350,14 +340,15 @@ export function MarketingContent() {
         <section className="ways-section" id="your-way">
           <div className="section-wrap">
             <div className="center-heading">
-              <p className="eyebrow">YOUR LIVE TEACHING WORKSPACE</p>
+              <p className="eyebrow">FOR TUTORS AND 1:1 TEACHING TEAMS</p>
               <h2>
-                Your institute.
+                Every student.
                 <br />
-                <span className="serif-word">Your way to teach.</span>
+                <span className="serif-word">Their own lesson.</span>
               </h2>
               <p>
-                A simple place for your team to schedule, teach, and follow up.
+                Teach independently or coordinate a team of tutors. Each session
+                brings one teacher and one student together.
               </p>
             </div>
             <ProductPaths />
@@ -371,7 +362,7 @@ export function MarketingContent() {
               <h2>
                 One connected
                 <br />
-                teaching journey.
+                1:1 teaching journey.
               </h2>
             </div>
             <p>
@@ -384,17 +375,17 @@ export function MarketingContent() {
             <li>
               <span>01</span>
               <h3>Schedule</h3>
-              <p>Give each class a teacher, time, and audience.</p>
+              <p>Choose one teacher, one student, and a lesson time.</p>
             </li>
             <li>
               <span>02</span>
               <h3>Join</h3>
-              <p>Help the right people get into the right room.</p>
+              <p>Bring the teacher and student into their lesson.</p>
             </li>
             <li>
               <span>03</span>
               <h3>Teach</h3>
-              <p>Explain, share, question, and work things out.</p>
+              <p>Explain, share, and practise at the student’s pace.</p>
             </li>
             <li>
               <span>04</span>
@@ -411,14 +402,14 @@ export function MarketingContent() {
               <h2>
                 Your platform.
                 <br />
-                Our classroom.
+                Your 1:1 classroom.
                 <br />
                 <span className="serif-word">A thoughtful handoff.</span>
               </h2>
               <p>
-                A planned external API built around the teaching lifecycle.
-                Create a class, request access for an authorised participant,
-                and bring class records back to your system.
+                Already run a tutoring platform? Discuss a planned integration
+                for individual lessons: schedule a teacher and student, launch
+                their classroom, and receive lesson updates in your system.
               </p>
               <div className="integration-points">
                 <span>
@@ -471,8 +462,9 @@ export function MarketingContent() {
               </h2>
             </div>
             <p>
-              Class size, simultaneous rooms, and recording needs shape your
-              setup. Explore your usage before discussing pilot pricing.
+              Every lesson has one teacher and one student. Estimate your
+              monthly teaching hours, then discuss room and recording needs
+              for your tutoring business.
             </p>
           </div>
           <UsageCalculator />
@@ -496,12 +488,13 @@ export function MarketingContent() {
           <div className="faqs">
             <details open>
               <summary>
-                Do we need to move our institute to Edveo?<span>+</span>
+                Who is Edveo Live for?<span>+</span>
               </summary>
               <p>
-                Get started takes you to Edveo account setup for the teaching
-                workspace. If you already have a platform, visit Integrations to
-                discuss the planned classroom API pilot separately.
+                Private tutors, online tutoring businesses, and institutes
+                delivering one-to-one lessons. Each lesson is designed around
+                one teacher and one student, including individual mentoring
+                and academic support.
               </p>
             </details>
             <details>
@@ -520,24 +513,24 @@ export function MarketingContent() {
             </details>
             <details>
               <summary>
-                How many classes can run at once?<span>+</span>
+                Is this for group classes or webinars?<span>+</span>
               </summary>
               <p>
-                Concurrency will be scoped and validated for the pilot.
-                Simultaneous teaching rooms and simultaneous recordings require
-                separate capacity checks. This preview does not promise a
-                participant limit or unlimited rooms.
+                This offering is focused on 1:1 lessons: one teacher and one
+                student in each classroom. A tutoring team can run several
+                individual lessons at the same time, within its plan’s room
+                and usage limits.
               </p>
             </details>
             <details>
               <summary>
-                Will our students need a second login?<span>+</span>
+                Can our tutoring platform connect to it?<span>+</span>
               </summary>
               <p>
-                The integration goal is an authorised launch from your platform
-                without a separate classroom login. External identity mapping
-                and secure launch access still need implementation and pilot
-                validation.
+                Visit Integrations to discuss the planned 1:1 classroom API.
+                Secure teacher and student entry, identity mapping, and lesson
+                updates will need pilot validation. Public integration endpoints
+                are not yet available.
               </p>
             </details>
             <details>
@@ -545,9 +538,9 @@ export function MarketingContent() {
                 Are recordings and attendance included?<span>+</span>
               </summary>
               <p>
-                Existing Edveo code provides a foundation for recording and
-                attendance workflows. Availability, recording capacity, replay
-                access, and retention will be confirmed for each pilot setup.
+                Attendance and available lesson recordings help you follow up
+                with each student. Recording access, capacity, and retention
+                depend on your plan and will be confirmed for the pilot.
               </p>
             </details>
             <details>
@@ -555,11 +548,10 @@ export function MarketingContent() {
                 Is this service accepting signups?<span>+</span>
               </summary>
               <p>
-                Get started guides you to Edveo’s existing account setup, where
-                you verify your email and create your workspace. Live features
-                depend on your modules and permissions. The website guide does
-                not create an account or activate a live-only plan. External
-                live-class API access is still planned.
+                Get started uses Google sign-in with no institute questionnaire.
+                When registration is available, your teaching workspace is
+                created automatically. Returning users open the same workspace.
+                Session access and limits depend on your plan.
               </p>
             </details>
           </div>
@@ -570,22 +562,22 @@ export function MarketingContent() {
             <div className="closing-spark" aria-hidden="true">
               ✳
             </div>
-            <p className="eyebrow">MAKE SPACE FOR THE NEXT GREAT LESSON</p>
+            <p className="eyebrow">ONE LEARNER. YOUR FULL ATTENTION.</p>
             <h2>
-              Your next classroom
+              Make your next lesson
               <br />
-              starts with <span className="serif-word">a conversation.</span>
+              <span className="serif-word">a personal one.</span>
             </h2>
             <p>
-              Create your account. Set up your institute.
+              For the tutor teaching one student at a time.
               <br />
-              Give your institute a focused place to go live.
+              And the institute doing it across a whole team.
             </p>
             <a className="button button-primary" href="/get-started/">
-              Find your setup <span>↗</span>
+              Start teaching 1:1 <span>↗</span>
             </a>
             <span className="closing-note">
-              One account for your teaching team.
+              Continue with Google. No setup questionnaire.
             </span>
           </div>
         </section>
@@ -601,13 +593,13 @@ export function MarketingContent() {
             </span>
           </a>
           <p>
-            A little more connected.
-            <br />A lot more room to teach.
+            One teacher. One student.
+            <br />A place to learn together.
           </p>
         </div>
         <div className="footer-links">
-          <a href="#classroom">The classroom</a>
-          <a href="#your-way">For institutes</a>
+          <a href="#classroom">The 1:1 classroom</a>
+          <a href="#your-way">For tutors &amp; institutes</a>
           <a href="/integrations/">Integrations for developers</a>
           <a href="#pricing">Usage planner</a>
           <InfoButton kind="privacy">Privacy in this preview</InfoButton>
@@ -617,7 +609,7 @@ export function MarketingContent() {
           <span>
             © <CopyrightYear /> Edveo Live · Product preview
           </span>
-          <span>Thoughtfully built for teaching.</span>
+          <span>Built for one-to-one teaching.</span>
         </div>
       </footer>
     </>

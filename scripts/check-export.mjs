@@ -30,7 +30,7 @@ assert.ok(
   "Homepage onboarding entry is missing",
 );
 assert.ok(
-  onboarding.includes("Your classroom awaits."),
+  onboarding.includes("Your 1:1 classroom awaits."),
   "Onboarding route was not exported",
 );
 assert.ok(

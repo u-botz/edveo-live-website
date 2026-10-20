@@ -1,7 +1,7 @@
 const example = `// Illustrative pseudocode — not a live SDK
 const classroom = await live.createClass({
-  title: "Quadratics, made simple",
-  externalReference: "maths-foundation-01",
+  title: "Sara’s 1:1 mathematics lesson",
+  externalReference: "sara-maths-01",
   startsAt: scheduledTime
 });
 

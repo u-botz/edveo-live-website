@@ -120,10 +120,10 @@ export function ClassroomDemo() {
       onClose={close}
       id="classroom-demo"
       className="demo-dialog"
-      title="A little space to think."
-      eyebrow="INTERACTIVE PRODUCT DEMO"
+      title="A lesson for one learner."
+      eyebrow="1:1 CLASSROOM DEMO"
       closeLabel="Close classroom demo"
-      intro="Try the whiteboard and example chat. This is a local demonstration with no live participants, camera, or recording."
+      intro="Explore a lesson between one teacher and one student. Try the whiteboard and sample chat locally, with no live participants, camera, or recording."
     >
       <div className="demo-workspace">
         <div className="demo-board-area">
@@ -198,7 +198,7 @@ export function ClassroomDemo() {
         </div>
         <aside className="demo-chat">
           <h3>
-            Classroom conversation <span>DEMO</span>
+            Teacher &amp; student chat <span>DEMO</span>
           </h3>
           <div
             ref={log}

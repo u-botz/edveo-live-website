@@ -12,7 +12,7 @@ import {
 
 export type ProductMode = "dashboard" | "integration" | "both";
 type Modal = "demo" | "planner" | "privacy" | "about" | null;
-type Usage = { students: number; classes: number; recording: boolean };
+type Usage = { classes: number; recording: boolean };
 type WebsiteState = {
   modal: Modal;
   setModal: Dispatch<SetStateAction<Modal>>;
@@ -27,7 +27,6 @@ export function WebsiteProvider({ children }: { children: ReactNode }) {
   const [modal, setModal] = useState<Modal>(null);
   const [mode, setMode] = useState<ProductMode>("dashboard");
   const [usage, setUsage] = useState<Usage>({
-    students: 30,
     classes: 20,
     recording: true,
   });

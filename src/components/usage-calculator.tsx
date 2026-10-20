@@ -4,32 +4,17 @@ import { PlannerButton, useWebsite } from "./website-provider";
 
 export function UsageCalculator() {
   const { usage, setUsage } = useWebsite();
-  const minutes = (usage.students + 1) * usage.classes * 60;
+  const minutes = 2 * usage.classes * 60;
   return (
     <div className="usage-card">
       <div className="usage-controls">
-        <label htmlFor="students">
-          Students per class{" "}
-          <output id="students-value" htmlFor="students">
-            {usage.students}
-          </output>
-        </label>
-        <input
-          id="students"
-          type="range"
-          min={1}
-          max={100}
-          value={usage.students}
-          onChange={(event) =>
-            setUsage({ ...usage, students: Number(event.target.value) })
-          }
-        />
-        <div className="range-ends">
-          <span>1 student</span>
-          <span>100 students</span>
+        <div className="one-to-one-usage">
+          <span className="path-label">EVERY LESSON IS 1:1</span>
+          <strong>1 teacher + 1 student</strong>
+          <p>Two participants. One student’s learning.</p>
         </div>
         <label htmlFor="classes">
-          Classes per month{" "}
+          1:1 lessons per month{" "}
           <output id="classes-value" htmlFor="classes">
             {usage.classes}
           </output>
@@ -46,8 +31,8 @@ export function UsageCalculator() {
           }
         />
         <div className="range-ends">
-          <span>5 classes</span>
-          <span>100 classes</span>
+          <span>5 lessons</span>
+          <span>100 lessons</span>
         </div>
         <label className="recording-toggle">
           <input
@@ -80,8 +65,8 @@ export function UsageCalculator() {
           </strong>
         </div>
         <p>
-          Assumes one teacher, full attendance, and 60-minute classes. This
-          estimates usage, not price or supported capacity.
+          A 60-minute lesson uses 120 participant-minutes: 60 for the teacher
+          and 60 for the student. This estimates usage, not a price or room limit.
         </p>
         <PlannerButton className="button button-primary">
           Plan around this usage <span>↗</span>
